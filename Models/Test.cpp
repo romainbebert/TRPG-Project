@@ -1,11 +1,14 @@
 #include <iostream>
 #include <memory>
-#include "FactoryNormal.hpp"
-
+#include "NormalFactory.hpp"
+#include "Burnt.hpp"
+#include "Poisoned.hpp"
+#include "Cecity.hpp"
 using namespace std;
 
-void affChar(Characteristics stat){
+void affChar(Characteristics stat) {
 	cout << endl << "Niveau = " << stat.getLvl() << "   ";
+	cout << "Difficulté = " << stat.getDiff() << endl;
 	cout << "Force = " << stat.getStr() << "   ";
 	cout << "Dextérité = " << stat.getDex() << "   ";
 	cout << "Constitution = " << stat.getCon() << "   ";
@@ -25,10 +28,10 @@ void affChar(Characteristics stat){
 	cout << "Défense Physique = " << stat.getPD() << "   ";
 	cout << "Défense Magique = " << stat.getMD() << endl;
 	
-	cout << "Resistance = " << stat.getR() << endl;
+	cout << "Resistance = " << stat.getRes() << endl;
 }
 
-void affType(Types type){
+void affType(Types type) {
 	cout << endl << "Bête ? " << type.getBeast() << "   ";
 	cout << "Elemental ? " << type.getElemental() << "   ";
 	cout << "Humain ? " << type.getHuman() << "   ";
@@ -36,27 +39,54 @@ void affType(Types type){
 	cout << "Mort-Vivant ? " << type.getUndead() << "   " << endl;
 }
 
-void affStats(Entity ent){
-	cout  << endl << "Statistiques de " << ent.getName() << endl;
-	affChar(ent.getChara());
-	affType(ent.getType());
+void affStats(Entity *ent) {
+	cout  << endl << "Statistiques de " << ent->getName() << endl;
+
+	cout << endl << "Niveau = " << ent->getLvl() << "   ";
+	cout << "Difficulté = " << ent->getDiff() << endl;
+	cout << "Force = " << ent->getStr() << "   ";
+	cout << "Dextérité = " << ent->getDex() << "   ";
+	cout << "Constitution = " << ent->getCon() << "   ";
+	cout << "Intelligence   = " << ent->getInt() << "   ";
+	cout << "Sagesse   = " << ent->getWis() << endl;
+	
+	cout << "PV max = " << ent->getHPM() << "   ";
+	cout << "PV = " << ent->getHP() << "   ";
+	cout << "PC max = " << ent->getCPM() << "   ";
+	cout << "PC = " << ent->getCP() << endl;
+	
+	cout << "PM = " << ent->getMP() << "   ";
+	cout << "PA = " << ent->getAP() << endl;
+
+	cout << "Précision = " << ent->getPre() << "   ";
+	cout << "Esquive = " << ent->getDod() << "   ";
+	cout << "Défense Physique = " << ent->getPD() << "   ";
+	cout << "Défense Magique = " << ent->getMD() << endl;
+	
+	cout << "Resistance = " << ent->getRes() << endl;
+
+	cout << endl << "Bête ? " << ent->getBeast() << "   ";
+	cout << "Elémental ? " << ent->getElemental() << "   ";
+	cout << "Humain ? " << ent->getHuman() << "   ";
+	cout << "Mythique ? " << ent->getMythic() << "   ";
+	cout << "Mort-Vivant ? " << ent->getUndead() << "   " << endl;
+
+	cout << "Etat : " << ent->getAlt() << "   " << endl;
 }
 
 int main(){
-	unique_ptr<Factory> normal(new FactoryNormal);
-	for (int i = 1; i <= 5; ++i) {
-		Entity a = normal->createEntity(1,i);
-		affStats(a);
-	}
+	unique_ptr<Factory> normal(new NormalFactory);
 
-	for (int j = 1; j <= 5; ++j) {
-		Entity b = normal->createEntity(2,j);
-		affStats(b);
-	}
-
-	Entity c = normal->createEntity();
+	Entity *c = normal->createEntity(2,5);
 	affStats(c);
 
-	Entity d = normal->createEntity(18,28);
-	affStats(d);
+	c = new Burnt(c);
+	c = new Poisoned(c);
+	c = new Cecity(c);
+
+	c->applyDecorator();
+	
+	affStats(c);
+
+
 }

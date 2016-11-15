@@ -4,6 +4,8 @@
 
 Entity::Entity(string n, Characteristics c, Types t)  : name_(n), chara_(c), type_(t) {}
 
+//////////////////////////////////////////////////
+
 string Entity::getName() const {
 	return name_;
 }
@@ -11,7 +13,6 @@ string Entity::getName() const {
 void Entity::setName(string name) {
 	name_ = name;
 }
-
 
 Characteristics Entity::getChara() const {
 	return chara_;
@@ -21,7 +22,6 @@ void Entity::setChara(Characteristics chara) {
 	chara_ = chara;
 }
 
-
 Types Entity::getType() const {
 	return type_;
 }
@@ -30,6 +30,7 @@ void Entity::setType(Types type) {
 	type_ = type;
 }
 
+//////////////////////////////////////////////////
 
 int Entity::getLvl() const {
 	return chara_.getLvl();
@@ -38,6 +39,16 @@ int Entity::getLvl() const {
 void Entity::setLvl(int lvl) {
 	chara_.setLvl(lvl);
 }
+
+int Entity::getDiff() const {
+	return chara_.getDiff();
+}
+
+void Entity::setDiff(int diff) {
+	chara_.setDiff(diff);
+}
+
+//////////////////////////////////////////////////
 
 int Entity::getStr() const {
 	return chara_.getStr();
@@ -87,6 +98,8 @@ void Entity::setCha(int cha){
 }
 */
 
+//////////////////////////////////////////////////
+
 int Entity::getHPM() const {
 	return chara_.getHPM();
 }
@@ -119,6 +132,7 @@ void Entity::setCP(int cp) {
 	chara_.setCP(cp);
 }
 
+//////////////////////////////////////////////////
 
 int Entity::getMP() const {
 	return chara_.getMP();
@@ -136,6 +150,7 @@ void Entity::setAP(int ap) {
 	chara_.setAP(ap);
 }
 
+//////////////////////////////////////////////////
 
 int Entity::getPre() const {
 	return chara_.getPre();
@@ -169,15 +184,59 @@ void Entity::setMD(int md) {
 	chara_.setMD(md);
 }
 
+//////////////////////////////////////////////////
 
-int  Entity::getR() const {
-	return chara_.getR();
+int  Entity::getRes() const {
+	return chara_.getRes();
 }
 
-void Entity::setR(int r) {
-	chara_.setR(r);
+void Entity::setRes(int r) {
+	chara_.setRes(r);
 }
 
+//////////////////////////////////////////////////
+
+void Entity::updateDiff() {
+	chara_.updateDiff();
+}
+
+void Entity::updateHPM() {
+	chara_.updateHPM();
+}
+
+void Entity::updateCPM() {
+	chara_.updateCPM();
+}
+
+void Entity::updateMP() {
+	chara_.updateMP();
+}
+
+void Entity::updateAP() {
+	chara_.updateAP();
+}
+
+void Entity::updatePre() {
+	chara_.updatePre();
+}
+
+void Entity::updateDod() {
+	chara_.updateDod();
+}
+
+void Entity::updatePD() {
+	chara_.updatePD();
+}
+
+void Entity::updateMD() {
+	chara_.updateMD();
+}
+
+void Entity::updateRes() {
+	chara_.updateRes();
+}
+
+//////////////////////////////////////////////////
 
 void Entity::updateStr() {
 	chara_.updateStr();
@@ -207,6 +266,7 @@ void Entity::updateAll() {
 	chara_.updateAll();
 }
 
+//////////////////////////////////////////////////
 
 bool Entity::getBeast() const {
 	return type_.getBeast();
@@ -246,4 +306,13 @@ bool Entity::getUndead() const {
 
 void Entity::setUndead(bool undead) {
 	type_.setUndead(undead);
+}
+
+//////////////////////////////////////////////////
+
+void Entity::applyDecorator() {
+}
+
+string Entity::getAlt() {
+	return "";
 }

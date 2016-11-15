@@ -27,9 +27,13 @@ class Engine {
 			GameOverState 	_gameover();
 			
 		}
+
+		Engine::~Engine(){
+			delete _state; delete _start; delete _select; delete _plturn; delete _npturn; delete _pause; delete _gameover; 
+		}
 		
-		boolean Engine::handleEvent(Event e) {
-			
+		boolean Engine::handleEvent(sf::Event e) {
+			_state.handleEvent(sf::Event e);
 		}
 		
 		void Engine::update(double deltaTime) {

@@ -1,25 +1,16 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-#include "Characteristics.hpp"
-#include "Types.hpp"
-
-using namespace std;
+#include "Entity.hpp"
 
 // Déclaration
 
-class Entity {
+class Decorator : public Entity {
 private:
-	string name_;
-	Characteristics chara_;
-	Types type_;
+	Entity *base_;
 
 public:
 	// Constructeur
-	Entity(string n = "Dummy", Characteristics c = Characteristics(), Types t = Types());
-
-	// Getters et Setters
+	Decorator(Entity *up);
 
 	virtual string getName() const;
 	virtual void setName(string name);
@@ -28,49 +19,49 @@ public:
 	virtual Types getType() const;
 	virtual void setType(Types type);
 
-    virtual int getLvl() const;
+	virtual int getLvl() const;
     virtual void setLvl(int lvl);
-    virtual int getDiff() const;
+	virtual int getDiff() const;
     virtual void setDiff(int diff);
 
-    virtual int getStr() const;
+	virtual int getStr() const;
     virtual void setStr(int str);
-    virtual int getDex() const;
+	virtual int getDex() const;
     virtual void setDex(int dex);
-    virtual int getCon() const;
+	virtual int getCon() const;
     virtual void setCon(int con);
-    virtual int getInt() const;
+	virtual int getInt() const;
     virtual void setInt(int inte);
-    virtual int getWis() const;
+	virtual int getWis() const;
     virtual void setWis(int wis);
  // virtual int getCha()const;
  // virtual void setCha(int cha);
 
-    virtual int getHPM() const;
+	virtual int getHPM() const;
     virtual void setHPM(int hpm);
-    virtual int getCPM() const;
-    virtual void setCPM(int cpm);
-    virtual int getHP() const;
-    virtual void setHP(int hp);
-    virtual int getCP() const;
+	virtual int getHP() const;
+	virtual void setHP(int hp);
+	virtual int getCPM() const;
+	virtual void setCPM(int cpm);
+	virtual int getCP() const;
     virtual void setCP(int cp);
 
-    virtual int getMP() const;
+	virtual int getMP() const;
     virtual void setMP(int mp);
-    virtual int getAP() const;
+	virtual int getAP() const;
     virtual void setAP(int ap);
-    
-    virtual int getPre() const;
-    virtual void setPre(int pre);
-    virtual int getDod() const;
-    virtual void setDod(int dod);
-    virtual int getPD() const;
-    virtual void setPD(int pd);
-    virtual int getMD() const;
-    virtual void setMD(int md);
 
-    virtual int  getRes() const;
-    virtual void setRes(int r);
+	virtual int getPre() const;
+    virtual void setPre(int pre);
+	virtual int getDod() const;
+    virtual void setDod(int dod);
+	virtual int getPD() const;
+    virtual void setPD(int pd);
+	virtual int getMD() const;
+    virtual void setMD(int md);
+	
+	virtual int getRes() const;
+    virtual void setRes(int res);
 
     virtual void updateDiff();
     virtual void updateHPM();
@@ -103,6 +94,8 @@ public:
 	virtual bool getUndead() const;
 	virtual void setUndead(bool undead);
 
-    virtual void applyDecorator();
-    virtual string getAlt();
+	virtual void applyDecorator();
+	virtual string getAlt();
+
+	~Decorator();
 };

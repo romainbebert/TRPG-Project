@@ -1,4 +1,5 @@
 #include <memory>
+#include <SFML/Graphics.hpp>
 #include "../Models/Board.hpp"
   
 class PlayerTurnState : GameState{
@@ -13,11 +14,9 @@ class PlayerTurnState : GameState{
         /*To avoid instanciating multiple Controllers and renderers for both Player and NPC turn state
         Also, Board is given as reference to allow for information sharing between the PlayerTurnState
         the NPCTurnState and the PauseState, so multiple state can access and eventually change data*/
-        PlayerTurnState::PlayerTurnState(std::shared_ptr<Board> board, BoardRenderer render, Entity mc){
-            board_ = board; render_ = render;
-        }
+        PlayerTurnState::PlayerTurnState(std::shared_ptr<Board> board, BoardRenderer render) : board_(board), render_(render){}
 
-        bool PlayerTurnState::eventHandler(sf::Event e){
+        bool PlayerTurnState::handleEvent(sf::Event e){
             
             switch(e.type){
             	case sf::event::Closed : 
@@ -65,7 +64,7 @@ class PlayerTurnState : GameState{
             controller_.update(delta);
         }
 
-        void PlayerTurnState::render(sf::Window){
-            renderer_.render(sf::Window);
+        void PlayerTurnState::render(sf::Window wind){
+            renderer_.render(wind);
         }
 };

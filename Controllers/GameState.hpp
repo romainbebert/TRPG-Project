@@ -1,3 +1,5 @@
+#include <SFML/Graphics.hpp>
+
 class Engine;
 
 virtual class GameState{
@@ -6,8 +8,9 @@ virtual class GameState{
 		Engine engine_;
 
 	public :
-		GameState(Engine engine);
-		virtual void update(double delta) = 0;
-		virtual void render(){ renderer_.render(); }
+		GameState::GameState(Engine engine);
+		virtual bool GameState::handleEvent(sf::Event e);
+		virtual void GameState::update(double delta) = 0;
+		virtual void GameState::render(){ renderer_.render(); }
 
 };

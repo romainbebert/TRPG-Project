@@ -34,4 +34,8 @@ Loup::Loup(int lvl) {
 					setType(Types(true, false, false, false, false));
 		break;
 	}
-};
+}
+
+int Loup::getStr() const {
+	return 12;
+}

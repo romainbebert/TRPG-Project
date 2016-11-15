@@ -4,8 +4,8 @@
 
 class Characteristics {
 private:
-	// Niveau
-	int lvl_;
+	int lvl_;	// Niveau
+	int diff_;	// Difficulté
 
 	// Statistiques basiques
 	int str_;	// Affecte les dégâts des armes au corps à corps et le nombre de points d'action
@@ -30,13 +30,12 @@ private:
 	int magDef_;// Défenses Magiques
 
 	int res_;	// Résistances aux altérations d'Etat
-	
+
 	// Constantes
-	
 	static const int BHP = 10;
 	static const int BCP = 10;
-	static const int BMP = 5;
-	static const int BAP = 8;
+	static const int BMP = 3;
+	static const int BAP = 6;
 	static const int BPR = 100;
 	static const int BDO = 5;
 	static const int BPD = 0;
@@ -50,6 +49,8 @@ public:
 	// Getters et Setters
 	int getLvl() const;
 	void setLvl(int lvl);
+	int getDiff() const;
+	void setDiff(int diff);
 
 	int getStr() const;
 	void setStr(int str);
@@ -87,8 +88,19 @@ public:
 	int getMD() const;
 	void setMD(int md);
 
-	int  getR() const;
-	void setR(int r);
+	int  getRes() const;
+	void setRes(int r);
+
+	void updateDiff();
+	void updateHPM();
+	void updateCPM();
+	void updateMP();
+	void updateAP();
+	void updatePre();
+	void updateDod();
+	void updatePD();
+	void updateMD();
+	void updateRes();
 
 	void updateStr();	// Met à jour toutes les valeurs affectées par la Force
 	void updateDex();	// Met à jour toutes les valeurs affectées par la Dextérité

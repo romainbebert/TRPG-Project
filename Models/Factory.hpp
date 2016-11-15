@@ -6,5 +6,5 @@ class Entity;
 
 class Factory {
 public :
-	virtual Entity createEntity(int ent = 2, int lvl = 1) = 0;
+	virtual Entity *createEntity(int ent = 1, int lvl = 1) = 0;
 };
