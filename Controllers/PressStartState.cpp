@@ -14,13 +14,17 @@ class PressStartState : GameState {
 		PressStartState::handleEvent(sf::Event e){
 			if(e.type == sf::Event::KeyReleased){
 				switch(e.key.code){
-					case sf::Keyboard::
-					case sf::Keyboard::
-					case sf::Keyboard::
+					case sf::Keyboard::Space
+					case sf::Keyboard::Return
+						engine_.changeStateSelect();
+						break;
+					default : 
+						break;
 				}
 			}
 		}
 
+		//No controller in Press Start atm, because no other logic needed than changing state
 		PressStartState::update(double delta){}
 
 		PressStartState::render(sf::Window wind){ render_.render(wind); }

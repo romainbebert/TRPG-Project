@@ -21,8 +21,8 @@ class PlayerTurnState : GameState{
             switch(e.type){
             	case sf::event::Closed : 
 
-
-                case sf::Event::KeyPressed :
+                    break;
+                case sf::Event::KeyReleased :
                     switch(e.key.code){
                         case sf::Keyboard::1 :
                             controller.useComp(1);
