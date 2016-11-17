@@ -35,7 +35,3 @@ Loup::Loup(int lvl) {
 		break;
 	}
 }
-
-int Loup::getStr() const {
-	return 12;
-}

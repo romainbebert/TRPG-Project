@@ -7,5 +7,4 @@
 class Loup : public Entity {
 public:
 	Loup(int lvl = 1);
-	int getStr() const;
 };

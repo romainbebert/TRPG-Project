@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <iostream>
 #include "Characteristics.hpp"
 #include "Types.hpp"
 

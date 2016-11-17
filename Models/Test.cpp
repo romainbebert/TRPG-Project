@@ -1,9 +1,11 @@
 #include <iostream>
 #include <memory>
+
 #include "NormalFactory.hpp"
 #include "Burnt.hpp"
 #include "Poisoned.hpp"
 #include "Cecity.hpp"
+#include "Capacities.hpp"
 using namespace std;
 
 void affChar(Characteristics stat) {
@@ -71,22 +73,26 @@ void affStats(Entity *ent) {
 	cout << "Mythique ? " << ent->getMythic() << "   ";
 	cout << "Mort-Vivant ? " << ent->getUndead() << "   " << endl;
 
-	cout << "Etat : " << ent->getAlt() << "   " << endl;
+	cout << "Etat : ";
+	if (ent->getAlt() == "") {
+		cout << "sain";
+	} else {
+		cout << ent->getAlt();
+	}
+	cout << "   " << endl;
 }
 
 int main(){
 	unique_ptr<Factory> normal(new NormalFactory);
 
-	Entity *c = normal->createEntity(2,5);
+	Entity *a = normal->createEntity(2,5);
+
+	Entity *c = normal->createEntity(1,1);
 	affStats(c);
-
-	c = new Burnt(c);
-	c = new Poisoned(c);
-	c = new Cecity(c);
-
-	c->applyDecorator();
 	
+	Capacity *b = new Fireball();
+
+	b->onHit(a,c);
+
 	affStats(c);
-
-
 }
