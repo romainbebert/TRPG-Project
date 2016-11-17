@@ -1,0 +1,8 @@
+http://gamedev.stackexchange.com/questions/651/tips-for-writing-the-main-game-loop
+http://www.sfml-dev.org/documentation/2.4.1/index.php
+http://gameprogrammingpatterns.com/update-method.html
+http://gameprogrammingpatterns.com/game-loop.html
+http://gameprogrammingpatterns.com/state.html
+http://www.gamefromscratch.com/page/SFML-CPP-Tutorial-Series.aspx
+http://fr.sfml-dev.org/forums/index.php?topic=10031.0
+http://gamedev.stackexchange.com/questions/97675/sfml-game-loop-and-fps-problems
