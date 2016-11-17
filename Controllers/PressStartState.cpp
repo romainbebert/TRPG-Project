@@ -16,8 +16,9 @@ class PressStartState : GameState {
 				switch(e.key.code){
 					case sf::Keyboard::Space
 					case sf::Keyboard::Return
-						engine_.changeStateSelect();
+						//engine_.changeStateSelect();
 						break;
+					
 					default : 
 						break;
 				}
