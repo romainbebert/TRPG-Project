@@ -7,15 +7,15 @@ class PressStartState : GameState {
 		StartRenderer render_;
 
 	public :
-		PressStartState::PressStartState(Engine engine, StartRenderer render_) : engine_(engine), render_(render) {}
+		PressStartState::PressStartState(Engine engine, StartRenderer render_) : engine_(engine) { render_ = StartRenderer(); }
 
 		PressStartState::~PressStartState(){}
 
 		PressStartState::handleEvent(sf::Event e){
 			if(e.type == sf::Event::KeyReleased){
 				switch(e.key.code){
-					case sf::Keyboard::Space
-					case sf::Keyboard::Return
+					case sf::Keyboard::Space :
+					case sf::Keyboard::Return : 
 						//engine_.changeStateSelect();
 						break;
 					

@@ -7,7 +7,7 @@ class PlayerTurnState : GameState{
     private :
         std::shared_ptr<Board> board_;
         BoardRenderer render_;
-        //BoardController controller_; is its own controller
+        int currentComp=1; //1 is movement by default
 
     public : 
 
@@ -20,21 +20,21 @@ class PlayerTurnState : GameState{
             
             switch(e.type){
             	case sf::event::Closed : 
-
+                    
                     break;
                 case sf::Event::KeyReleased :
                     switch(e.key.code){
                         case sf::Keyboard::1 :
-                            controller.useComp(1);
+                            controller_.useComp(1);
                             break;
                         case sf::Keyboard::2 :
-                            controller.useComp(2);
+                            controller_.useComp(2);
                             break;
                         case sf::Keyboard::3 :
-                            controller.useComp(3);
+                            controller_.useComp(3);
                             break;
                         case sf::Keyboard::4 :
-                            controller.useComp(4);
+                            controller_.useComp(4);
                             break;
                     }
                     break;
@@ -42,7 +42,8 @@ class PlayerTurnState : GameState{
                 case sf::Event::MouseButtonReleased :
                     switch(event.mouseButton.button){
                         case sf::Mouse::Right :
-                            controller.onClick();
+                            controller_.onClick();
+                            break;
 
                         default : 
                             break;
@@ -57,7 +58,7 @@ class PlayerTurnState : GameState{
         }
 
         void PlayerTurnState::useComp(int i){
-
+            
         }
 
         void PlayerTurnState::update(double delta){

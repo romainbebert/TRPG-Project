@@ -6,6 +6,7 @@ virtual class GameState{
 
 	private : 
 		Engine engine_;
+		Renderer renderer_;
 
 	public :
 		GameState::GameState(Engine engine);
