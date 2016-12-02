@@ -7,7 +7,8 @@ class PlayerTurnState : GameState{
     private :
         std::shared_ptr<Board> board_;
         BoardRenderer render_;
-        int currentComp=1; //1 is movement by default
+        int currentAction;
+        //BoardController controller_; is its own controller
 
     public : 
 
@@ -19,9 +20,7 @@ class PlayerTurnState : GameState{
         bool PlayerTurnState::handleEvent(sf::Event e){
             
             switch(e.type){
-            	case sf::event::Closed : 
-                    
-                    break;
+
                 case sf::Event::KeyReleased :
                     switch(e.key.code){
                         case sf::Keyboard::1 :

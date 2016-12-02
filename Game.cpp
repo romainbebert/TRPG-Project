@@ -1,29 +1,34 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-int main()
-{
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-    // Load a sprite to display
-    window.setFramerateLimit(60);
-    // Start the game loop
-    while (window.isOpen())
-    {
-        // Process events
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-                window.close();
-            engine.handleEvent(event);
-        }
-        // Clear screen
-        window.clear();
-        engine.update();
-        engine.render(window);
-        // Update the window
-        window.display();
-    }
-    return EXIT_SUCCESS;
+#include <iostream> 
+#include <SFML/Audio.hpp> 
+#include <SFML/Graphics.hpp> 
+#include "Controllers/GameState.hpp"
+
+ 
+int main(){ 
+ 
+  sf::VideoMode desk = sf::VideoMode::getDesktopMode(); 
+  sf::RenderWindow wind(desk, "test"); 
+  sf::Font font; sf::Text text; 
+ 
+  if(!font.loadFromFile("arial.ttf")) 
+    std::cerr << "error finding font file"; 
+  text.setFont(font); 
+  text.setCharacterSize(30); 
+  text.setStyle(sf::Text::Regular); 
+  text.setString("Press Enter or Space to start"); 
+ 
+  while (wind.isOpen()){ 
+    sf::Event eve; 
+    while (wind.pollEvent(eve)){ 
+      if (eve.type == sf::Event::Closed) 
+                wind.close(); 
+        } 
+        // Clear screen 
+        wind.clear(); 
+        // Draw the string 
+        wind.draw(text); 
+        // Update the window 
+        wind.display(); 
+     
+  } 
 }
