@@ -1,18 +1,21 @@
 #include <iostream> 
-#include <SFML/Audio.hpp> 
-#include <SFML/Graphics.hpp> 
-#include "Controllers/GameState.hpp"
-
+#include "sfml/include/SFML/Audio.hpp"
+#include "sfml/include/SFML/Graphics.hpp" 
+#include "Controllers/Engine.cpp"
  
+sf::RenderWindow wind(sf::VideoMode::getDesktopMode(),"test");
+
 int main(){ 
  
-  sf::VideoMode desk = sf::VideoMode::getDesktopMode(); 
+  wind.setFramerateLimit(60);
+  /*sf::VideoMode desk = sf::VideoMode::getDesktopMode(); 
   sf::RenderWindow wind(desk, "test"); 
   sf::Font font; sf::Text text; 
  
-  if(!font.loadFromFile("arial.ttf")) 
+  if(!font.loadFromFile("steelfish.ttf")) 
     std::cerr << "error finding font file"; 
   text.setFont(font); 
+  text.setColor(sf::Color::red);
   text.setCharacterSize(30); 
   text.setStyle(sf::Text::Regular); 
   text.setString("Press Enter or Space to start"); 
@@ -26,7 +29,11 @@ int main(){
         // Clear screen 
         wind.clear(); 
         // Draw the string 
-        wind.draw(text); 
+        wind.draw(text); */
+  StartRenderer eng;
+  while(wind.isOpen()){
+
+    eng.render();
         // Update the window 
         wind.display(); 
      

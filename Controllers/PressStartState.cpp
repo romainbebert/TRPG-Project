@@ -1,13 +1,14 @@
+#include "GameState.hpp"
 #include <SFML/Graphics.hpp>
 
 class PressStartState : GameState {
 	
 	private :
-		Engine engine_;
+		Engine* engine_;
 		StartRenderer render_;
 
 	public :
-		PressStartState::PressStartState(Engine engine, StartRenderer render_) : engine_(engine) { render_ = StartRenderer(); }
+		PressStartState::PressStartState(Engine engine) : engine_(engine) { render_ = StartRenderer(); }
 
 		PressStartState::~PressStartState(){}
 
@@ -26,9 +27,9 @@ class PressStartState : GameState {
 		}
 
 		//No controller in Press Start atm, because no other logic needed than changing state
-		PressStartState::update(double delta){}
+		PressStartState::update(){}
 
-		PressStartState::render(sf::Window wind){ render_.render(wind); }
+		PressStartState::render(){ render_.render(); }
 
 
 }
